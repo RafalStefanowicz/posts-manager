@@ -1,11 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import fetchUsers from "../../actions/fetchUsers";
 
 class App extends React.Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
 
   render() {
     return <div>APP</div>;
   }
 }
-
-export default App;
+const mapStateToProps = state => ({ users: state.users });
+const mapDispatchToProps = { fetchUsers };
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
