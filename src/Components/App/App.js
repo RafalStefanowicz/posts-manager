@@ -11,7 +11,8 @@ class App extends React.Component {
   }
   render() {
     const users = this.props.users;
-    return users ? <Page /> : <Loader />;
+    const areUsersFetched = !!Object.keys(users).length;
+    return areUsersFetched ? <Page /> : <Loader />;
   }
 }
 const mapStateToProps = state => ({ users: state.users });
