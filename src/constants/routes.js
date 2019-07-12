@@ -1,2 +1,2 @@
 export const USERSLIST = "/";
-export const USER = "/user/:userId";
+export const USER = "/user/:userId/:postId?";
