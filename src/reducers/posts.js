@@ -1,6 +1,6 @@
 import { FETCH_USER_POSTS } from "../actions/actionTypes";
 
-const userPosts = (state = {}, action) => {
+const posts = (state = {}, action) => {
   switch (action.type) {
     case FETCH_USER_POSTS:
       return { ...state, ...action.payload };
@@ -9,4 +9,4 @@ const userPosts = (state = {}, action) => {
   }
 };
 
-export default userPosts;
+export default posts;

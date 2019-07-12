@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import users from "./users";
-import userPosts from "./userPosts";
+import posts from "./posts";
 
 const reducers = combineReducers({
   users,
-  userPosts
+  posts
 });
 
 export default reducers;
