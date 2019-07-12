@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 const UserListPage = props => {
   const users = props.users;
   const usersArray = Object.values(users);
+  const onClick = event => {
+    const userId = event.currentTarget.id;
+    props.history.push(`/user/${userId}`);
+  };
   const userItems = usersArray.map(user => {
     const { id, name, email, phone, website } = user;
     return (
@@ -12,7 +16,9 @@ const UserListPage = props => {
         <h3>{email}</h3>
         <h3>{phone}</h3>
         <h3>{website}</h3>
-        <button name={id}>Details</button>
+        <button onClick={onClick} id={id}>
+          Details
+        </button>
       </li>
     );
   });
