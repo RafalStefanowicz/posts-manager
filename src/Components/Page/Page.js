@@ -9,8 +9,6 @@ const Page = () => {
     <BrowserRouter>
       <Switch>
         <Route path={USER} component={UserPage} />
-      </Switch>
-      <Switch>
         <Route path={USERSLIST} component={UserListPage} />
       </Switch>
     </BrowserRouter>
