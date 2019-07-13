@@ -1,7 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 
-const UserPage = () => {
-  return <div>UserPage</div>;
-};
+import withUser from "./withUserPosts/withUserPosts";
+import UserNav from "./UserNav/UserNav";
+class UserPage extends Component {
+  userId = this.props.match.params.userId;
+  postId = this.props.match.params.postId;
 
-export default UserPage;
+  componentDidMount() {}
+  componentWillUnmount() {}
+
+  render() {
+    const { user } = this.props;
+    return (
+      <UserNav userId={this.userId} postId={this.postId} userName={user.name} />
+    );
+  }
+}
+
+export default withUser(UserPage);
