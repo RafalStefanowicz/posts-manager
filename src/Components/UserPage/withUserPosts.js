@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import fetchUserPosts from "../../../actions/fetchUserPosts";
-import InfoPage from "../../InfoPage/InfoPage";
-import Loader from "../../Loader/Loader";
+import fetchUserPosts from "../../actions/fetchUserPosts";
+import InfoPage from "../InfoPage/InfoPage";
+import Loader from "../Loader/Loader";
 
 const withUserPosts = Component => {
   class WithUserPosts extends React.Component {
@@ -26,6 +26,7 @@ const withUserPosts = Component => {
       );
     }
   }
+
   const mapStateToProps = (state, props) => {
     const userId = props.match.params.userId;
     const posts = state.posts[userId];

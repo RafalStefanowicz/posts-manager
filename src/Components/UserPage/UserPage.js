@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import withUser from "./withUserPosts/withUserPosts";
+import withUserPosts from "./withUserPosts";
 import UserNav from "./UserNav/UserNav";
 import Posts from "./Posts/Posts";
 import PostDetails from "./PostDetails/PostDetails";
@@ -12,7 +12,9 @@ class UserPage extends Component {
   render() {
     const userId = this.props.match.params.userId;
     const postId = this.props.match.params.postId;
-    const searchedPost = this.props.posts.find(post => post.id == postId);
+    const searchedPost = this.props.posts.find(
+      post => Number(post.id) === Number(postId)
+    );
     const { user, posts } = this.props;
     return (
       <>
@@ -23,4 +25,4 @@ class UserPage extends Component {
   }
 }
 
-export default withUser(UserPage);
+export default withUserPosts(UserPage);
