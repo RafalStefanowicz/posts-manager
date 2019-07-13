@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import withUserPosts from "./withUserPosts";
 import UserNav from "./UserNav/UserNav";
@@ -24,5 +25,10 @@ class UserPage extends Component {
     );
   }
 }
+UserPage.propTypes = {
+  match: PropTypes.object.isRequired,
+  posts: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired
+};
 
 export default withUserPosts(UserPage);
