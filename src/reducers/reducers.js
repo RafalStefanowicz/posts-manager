@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
+
 import users from "./users";
 import posts from "./posts";
 import comments from "./comments";
@@ -8,7 +10,8 @@ const reducers = combineReducers({
   users,
   posts,
   comments,
-  modal
+  modal,
+  form: formReducer
 });
 
 export default reducers;
