@@ -5,7 +5,7 @@ const posts = (state = {}, action) => {
     case FETCH_USER_POSTS:
       return { ...state, ...action.payload };
     case ADD_POST:
-      const newPosts = { ...state };
+      const newPosts = JSON.parse(JSON.stringify(state));
       const post = action.payload;
       newPosts[post.userId].push(post);
       return newPosts;
