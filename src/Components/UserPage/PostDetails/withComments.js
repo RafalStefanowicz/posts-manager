@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import InfoPage from "../../InfoPage/InfoPage";
 import Loader from "../../Loader/Loader";
-import { getDisplayName } from "../../../helpers";
+import { getDisplayName } from "../../../helpers/helpers";
 import fetchPostComments from "../../../actions/fetchPostComments";
 const withComments = Component => {
   class WithComments extends React.Component {

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import fetchUserPosts from "../../actions/fetchUserPosts";
 import InfoPage from "../InfoPage/InfoPage";
 import Loader from "../Loader/Loader";
-import { getDisplayName } from "../../helpers";
+import { getDisplayName } from "../../helpers/helpers";
 
 const withUserPosts = Component => {
   class WithUserPosts extends React.Component {
