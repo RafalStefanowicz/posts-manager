@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import withUserPosts from "./withUserPosts";
 import UserNav from "./UserNav/UserNav";
 import Posts from "./Posts/Posts";
-import PostDetails from "./PostDetails/PostDetails";
+import PostDetailsContainer from "./PostDetails/PostDetailsContainer";
 class UserPage extends Component {
   componentDidMount() {}
 
@@ -20,7 +20,11 @@ class UserPage extends Component {
     return (
       <>
         <UserNav userId={userId} postId={postId} userName={user.name} />
-        {postId ? <PostDetails post={searchedPost} /> : <Posts posts={posts} />}
+        {postId ? (
+          <PostDetailsContainer post={searchedPost} />
+        ) : (
+          <Posts posts={posts} />
+        )}
       </>
     );
   }
