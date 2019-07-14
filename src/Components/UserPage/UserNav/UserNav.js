@@ -11,14 +11,14 @@ const UserNav = props => {
     <div>
       <BackBtn>Cofnij</BackBtn>
       <h1>{userName}</h1>
-      {postId ? <DeletePostBtn /> : <AddPostBtn />}
+      {postId ? <DeletePostBtn /> : <AddPostBtn userId={userId} />}
     </div>
   );
 };
 UserNav.propTypes = {
   userName: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired,
-  postId: PropTypes.string
+  userId: PropTypes.number.isRequired,
+  postId: PropTypes.number
 };
 
 export default UserNav;

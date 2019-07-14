@@ -11,11 +11,9 @@ class UserPage extends Component {
   componentWillUnmount() {}
 
   render() {
-    const userId = this.props.match.params.userId;
-    const postId = this.props.match.params.postId;
-    const searchedPost = this.props.posts.find(
-      post => Number(post.id) === Number(postId)
-    );
+    const userId = Number(this.props.match.params.userId);
+    const postId = Number(this.props.match.params.postId);
+    const searchedPost = this.props.posts.find(post => post.id === postId);
     const { user, posts } = this.props;
     return (
       <>
