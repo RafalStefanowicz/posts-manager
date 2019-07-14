@@ -8,14 +8,15 @@ import { getDisplayName } from "../../helpers";
 const withUserPosts = Component => {
   class WithUserPosts extends React.Component {
     componentDidMount() {
-      //only fetch if there is userId of existing user
-      if (this.props.user) {
+      // prevent fetching when user manually entered url(param) of not existing id
+      // prevent fetching when user's posts ale already fetched
+      if (this.props.user && !this.props.posts) {
         this.props.fetchUserPosts(this.props.user.id);
       }
     }
     render() {
       const { user, posts } = this.props;
-      // if the user manually entered url/param of not existing id
+      // if user manually entered url(param) of not existing id
       if (user === null) return <InfoPage>Nie ma takiego użytkownika</InfoPage>;
 
       return posts ? (
