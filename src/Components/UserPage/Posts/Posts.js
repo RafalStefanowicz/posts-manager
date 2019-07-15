@@ -1,15 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import showModal from "../../../actions/showModal";
+import { DELETE_POST_MODAL } from "../../../constants/modalTypes";
 const Posts = props => {
+  const handleDeleteClick = post => {
+    props.showModal(DELETE_POST_MODAL, { post: post });
+  };
+
   const postItems = props.posts.map(post => {
     const { userId, id: postId, title } = post;
     return (
       <li key={postId}>
         <button
           onClick={() => {
-            console.log("click");
+            handleDeleteClick(post);
           }}
         >
           Usun
@@ -27,5 +34,9 @@ const Posts = props => {
 Posts.propTypes = {
   posts: PropTypes.array.isRequired
 };
+const mapDispatchToProps = { showModal };
 
-export default Posts;
+export default connect(
+  null,
+  mapDispatchToProps
+)(Posts);
