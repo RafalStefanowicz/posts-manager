@@ -4,7 +4,7 @@ import usersApi from "../apis/usersApi";
 const fetchUserPost = userId => async dispatch => {
   const response = await usersApi.get(`/posts?userId=${userId}`);
   const posts = response.data;
-  dispatch({ type: FETCH_USER_POSTS, payload: { [userId]: posts } });
+  dispatch({ type: FETCH_USER_POSTS, payload: posts });
 };
 
 export default fetchUserPost;
