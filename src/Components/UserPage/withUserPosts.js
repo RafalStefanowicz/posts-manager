@@ -10,7 +10,7 @@ const withUserPosts = Component => {
     componentDidMount() {
       // prevent fetching when user manually entered url(param) of not existing id
       // prevent fetching when user's posts ale already fetched
-      if (this.props.user && !this.props.posts) {
+      if (this.props.user && !this.props.posts.length) {
         this.props.fetchUserPosts(this.props.user.id);
       }
     }
@@ -30,9 +30,11 @@ const withUserPosts = Component => {
 
   const mapStateToProps = (state, props) => {
     const userId = props.match.params.userId;
-    const posts = state.posts[userId];
+    const userPosts = state.posts.filter(
+      post => post.userId === Number(userId)
+    );
     const user = state.users[userId] || null;
-    return { user, posts };
+    return { user, posts: userPosts };
   };
   const mapDispatchToProps = { fetchUserPosts };
   return connect(
