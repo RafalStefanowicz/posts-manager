@@ -36,7 +36,10 @@ const withComments = Component => {
   const mapStateToProps = (state, props) => {
     // check if there is post in props
     const postId = props.post && props.post.id;
-    return { comments: state.comments[postId] };
+    const postComments = state.comments.filter(
+      comment => comment.postId === postId
+    );
+    return { comments: postComments };
   };
   const mapDispatchToProps = { fetchPostComments };
   return connect(
