@@ -19,7 +19,7 @@ const withUserPosts = Component => {
       // if user manually entered url(param) of not existing id
       if (user === null) return <InfoPage>Nie ma takiego użytkownika</InfoPage>;
 
-      return posts ? (
+      return posts.length ? (
         <Component user={user} posts={posts} {...this.props} />
       ) : (
         <Loader />
