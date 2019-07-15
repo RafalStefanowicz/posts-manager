@@ -11,7 +11,11 @@ const UserNav = props => {
     <div>
       <BackBtn>Cofnij</BackBtn>
       <h1>{userName}</h1>
-      {postId ? <DeletePostBtn /> : <AddPostBtn userId={userId} />}
+      {postId ? (
+        <DeletePostBtn postId={postId} />
+      ) : (
+        <AddPostBtn userId={userId} />
+      )}
     </div>
   );
 };

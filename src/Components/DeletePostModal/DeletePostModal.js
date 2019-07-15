@@ -6,19 +6,19 @@ import Modal from "../Modal/Modal";
 import deletePost from "../../actions/deletePost";
 
 const DeletePostModal = props => {
-  const { post } = props;
+  const { postId } = props;
   const handleDeleteClick = () => {
-    props.deletePost(post);
+    props.deletePost(postId);
   };
   return (
     <Modal>
-      <h1>{`Do u want to delete post ${post.id} ?`}</h1>
+      <h1>{`Do u want to delete post ${postId} ?`}</h1>
       <button onClick={handleDeleteClick}>Tak</button>
     </Modal>
   );
 };
 
-DeletePostModal.propTypes = { post: PropTypes.object.isRequired };
+DeletePostModal.propTypes = { postId: PropTypes.number.isRequired };
 
 const mapDispatchToProps = { deletePost };
 

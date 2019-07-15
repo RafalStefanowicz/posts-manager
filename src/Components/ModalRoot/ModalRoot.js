@@ -16,7 +16,7 @@ const ModalRoot = props => {
     case ADD_POST_MODAL:
       return <AddPostModal userId={modalProps.userId} />;
     case DELETE_POST_MODAL:
-      return <DeletePostModal post={modalProps.post} />;
+      return <DeletePostModal postId={modalProps.postId} />;
     // case ADD_COMMENT_MODAL:
     //   return <AddCommentModal post={modalProps} />;
     default:
