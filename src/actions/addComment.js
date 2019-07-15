@@ -14,7 +14,6 @@ const addComment = comment => async dispatch => {
       body: comment.body
     });
     const responseComment = response.data;
-    console.log(responseComment);
     // reassign comment.id , because api always returns 101
     responseComment.id = uniqueCommentId.getUniqueId();
     dispatch({ type: ADD_COMMENT, payload: responseComment });
