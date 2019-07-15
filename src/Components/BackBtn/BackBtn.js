@@ -2,6 +2,9 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 const BackButton = props => {
-  return <button onClick={props.history.goBack}>Cofnij</button>;
+  const handleClick = () => {
+    props.history.push(props.path);
+  };
+  return <button onClick={handleClick}>Cofnij</button>;
 };
 export default withRouter(BackButton);
