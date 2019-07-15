@@ -6,10 +6,6 @@ import UserNav from "./UserNav/UserNav";
 import Posts from "./Posts/Posts";
 import PostDetailsContainer from "./PostDetails/PostDetailsContainer";
 class UserPage extends Component {
-  componentDidMount() {}
-
-  componentWillUnmount() {}
-
   render() {
     const userId = Number(this.props.match.params.userId);
     const postId = Number(this.props.match.params.postId);
