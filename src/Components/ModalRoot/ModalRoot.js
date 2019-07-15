@@ -17,13 +17,19 @@ const ModalRoot = props => {
     case ADD_POST_MODAL:
       return <AddPostModal userId={modalProps.userId} />;
     case DELETE_POST_MODAL:
-      return <DeletePostModal postId={modalProps.postId} />;
+      return (
+        <DeletePostModal
+          postId={modalProps.postId}
+          userId={modalProps.userId}
+        />
+      );
     case ADD_COMMENT_MODAL:
       return <AddCommentModal postId={modalProps.postId} />;
     default:
       return null;
   }
 };
+
 const mapStateToProps = state => ({ modal: state.modal });
 
 export default connect(mapStateToProps)(ModalRoot);

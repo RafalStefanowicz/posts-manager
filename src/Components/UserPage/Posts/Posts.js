@@ -8,7 +8,7 @@ const Posts = props => {
     const { userId, id: postId, title } = post;
     return (
       <li key={postId}>
-        <DeletePostBtn postId={postId} />
+        <DeletePostBtn postId={postId} userId={userId} />
         <Link to={`/user/${userId}/${postId}`}>
           <h1>{title}</h1>
           <span>ikonka</span>

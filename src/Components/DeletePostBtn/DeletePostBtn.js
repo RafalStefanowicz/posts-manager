@@ -7,7 +7,10 @@ import { DELETE_POST_MODAL } from "../../constants/modalTypes";
 
 const DeletePostBtn = props => {
   const handleDeleteClick = () => {
-    props.showModal(DELETE_POST_MODAL, { postId: props.postId });
+    props.showModal(DELETE_POST_MODAL, {
+      userId: props.userId,
+      postId: props.postId
+    });
   };
 
   return <button onClick={handleDeleteClick}>Usuń Post</button>;
@@ -16,7 +19,8 @@ const DeletePostBtn = props => {
 const mapDispatchToProps = { showModal };
 
 DeletePostBtn.propTypes = {
-  postId: PropTypes.number.isRequired
+  postId: PropTypes.number.isRequired,
+  userId: PropTypes.number.isRequired
 };
 
 export default connect(

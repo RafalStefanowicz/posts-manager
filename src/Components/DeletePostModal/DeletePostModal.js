@@ -7,9 +7,9 @@ import hideModal from "../../actions/hideModal";
 import deletePost from "../../actions/deletePost";
 
 const DeletePostModal = props => {
-  const { postId } = props;
+  const { postId, userId } = props;
   const handleDeleteClick = () => {
-    props.deletePost(postId);
+    props.deletePost(postId, userId);
   };
   return (
     <Modal>
@@ -20,7 +20,10 @@ const DeletePostModal = props => {
   );
 };
 
-DeletePostModal.propTypes = { postId: PropTypes.number.isRequired };
+DeletePostModal.propTypes = {
+  postId: PropTypes.number.isRequired,
+  userId: PropTypes.number.isRequired
+};
 
 const mapDispatchToProps = { deletePost, hideModal };
 

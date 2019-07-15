@@ -4,11 +4,10 @@ import hideModal from "./hideModal";
 import history from "../history/history";
 import { USER } from "../constants/routes";
 
-const deletePost = postId => async dispatch => {
+const deletePost = (postId, userId) => async dispatch => {
   await usersApi.delete(`/posts/${postId}`);
   dispatch({ type: DELETE_POST, payload: postId });
   dispatch(hideModal());
-  console.log("get user from store and push");
-  // history.push(`/user/1`);
+  history.push(`/user/${userId}`);
 };
 export default deletePost;

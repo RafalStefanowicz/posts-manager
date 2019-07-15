@@ -9,10 +9,10 @@ const UserNav = props => {
   const { userName, userId, postId } = props;
   return (
     <div>
-      <BackBtn>Cofnij</BackBtn>
+      <BackBtn path={postId ? `/user/${userId}` : "/"}>Cofnij</BackBtn>
       <h1>{userName}</h1>
       {postId ? (
-        <DeletePostBtn postId={postId} />
+        <DeletePostBtn userId={userId} postId={postId} />
       ) : (
         <AddPostBtn userId={userId} />
       )}
