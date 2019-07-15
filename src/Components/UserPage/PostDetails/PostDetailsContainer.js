@@ -1,13 +1,18 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
 import PropTypes from "prop-types";
 
+import { ADD_COMMENT_MODAL } from "../../../constants/modalTypes";
+import showModal from "../../../actions/showModal";
 import withComments from "./withComments";
 import PostDetails from "./PostDetails";
 
 class PostDetailsContainer extends Component {
   state = { commentsVisible: false };
   handleAddComments = () => {
-    console.log("dodaj obsluge dodwania komentarzy");
+    const { showModal, post } = this.props;
+    showModal(ADD_COMMENT_MODAL, { postId: post.id });
   };
   toggleCommentsVisible = () => {
     this.setState(prevState => ({
@@ -33,4 +38,12 @@ PostDetails.propTypes = {
   post: PropTypes.object.isRequired,
   comments: PropTypes.array.isRequired
 };
-export default withComments(PostDetailsContainer);
+
+const mapDispatchToProps = { showModal };
+export default compose(
+  connect(
+    null,
+    mapDispatchToProps
+  ),
+  withComments
+)(PostDetailsContainer);
