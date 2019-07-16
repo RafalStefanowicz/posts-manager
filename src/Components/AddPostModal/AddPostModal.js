@@ -6,7 +6,7 @@ import Modal from "../Modal/Modal";
 
 const AddPostModal = props => {
   const { userId } = props;
-  return <Modal>{<AddPostForm userId={userId} />}</Modal>;
+  return <Modal heading={"Add Post"}>{<AddPostForm userId={userId} />}</Modal>;
 };
 
 AddPostModal.propTypes = { userId: PropTypes.number.isRequired };
