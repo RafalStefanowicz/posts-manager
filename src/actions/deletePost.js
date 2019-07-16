@@ -5,10 +5,14 @@ import history from "../history/history";
 import { USER } from "../constants/routes";
 
 const deletePost = (postId, userId) => async dispatch => {
-  await usersApi.delete(`/posts/${postId}`);
-  dispatch({ type: DELETE_POST, payload: postId });
-  dispatch(hideModal());
-  history.push(USER + userId);
+  try {
+    await usersApi.delete(`/posts/${postId}`);
+    dispatch({ type: DELETE_POST, payload: postId });
+    dispatch(hideModal());
+    history.push(USER + userId);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default deletePost;
