@@ -15,7 +15,7 @@ export const PostWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const PostTitle = styled.h1`
+export const StyledTitle = styled.h1`
   text-align: center;
   margin: 10px;
 `;
@@ -26,20 +26,20 @@ export const CommentItem = styled.li`
   border: 3px solid black;
 `;
 
-export const UserDetails = styled.div`
+export const UserDetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
 `;
 
-export const CommentName = styled.span`
+export const StyledName = styled.span`
   font-weight: bold;
 `;
 
-export const Email = styled.span`
+export const StyledEmail = styled.span`
   color: #0b5394;
 `;
 
-export const CommentBody = styled.p`
+export const StyledComment = styled.p`
   margin: 10px;
 `;

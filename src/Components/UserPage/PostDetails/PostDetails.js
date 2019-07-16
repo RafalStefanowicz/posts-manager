@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import {
   ButtonWrapper,
   PostWrapper,
-  PostTitle,
+  StyledTitle,
   CommentItem,
-  UserDetails,
-  CommentName,
-  Email,
-  CommentBody,
+  UserDetailsWrapper,
+  StyledName,
+  StyledEmail,
+  StyledComment,
   StyledButton
 } from "./PostDetailsStyle";
 const PostDetails = props => {
@@ -24,18 +24,18 @@ const PostDetails = props => {
   const commentsItems = comments.map(comment => {
     return (
       <CommentItem key={comment.id}>
-        <UserDetails>
-          <CommentName>{comment.name}</CommentName>
-          <Email>{comment.email}</Email>
-        </UserDetails>
-        <CommentBody>{comment.body}</CommentBody>
+        <UserDetailsWrapper>
+          <StyledName>{comment.name}</StyledName>
+          <StyledEmail>{comment.email}</StyledEmail>
+        </UserDetailsWrapper>
+        <StyledComment>{comment.body}</StyledComment>
       </CommentItem>
     );
   });
   return (
     <div>
       <PostWrapper>
-        <PostTitle>{post.Posttitle}</PostTitle>
+        <StyledTitle>{post.Posttitle}</StyledTitle>
         <p>{post.body}</p>
         <ButtonWrapper>
           <StyledButton onClick={toggleCommentsVisible}>{`${
