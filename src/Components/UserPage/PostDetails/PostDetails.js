@@ -1,6 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import {
+  ButtonWrapper,
+  PostWrapper,
+  PostTitle,
+  CommentItem,
+  UserDetails,
+  CommentName,
+  Email,
+  CommentBody,
+  StyledButton
+} from "./PostDetailsStyle";
 const PostDetails = props => {
   const {
     comments,
@@ -12,22 +23,28 @@ const PostDetails = props => {
 
   const commentsItems = comments.map(comment => {
     return (
-      <li key={comment.id}>
-        <h1>{comment.name}</h1>
-        <span>{comment.email}</span>
-        <h3>{comment.body}</h3>
-      </li>
+      <CommentItem key={comment.id}>
+        <UserDetails>
+          <CommentName>{comment.name}</CommentName>
+          <Email>{comment.email}</Email>
+        </UserDetails>
+        <CommentBody>{comment.body}</CommentBody>
+      </CommentItem>
     );
   });
   return (
     <div>
-      <h1>{post.title}</h1>
-      <h3>{post.body}</h3>
-      <button onClick={toggleCommentsVisible}>{`${
-        commentsVisible ? "Hide" : "Show"
-      } comments`}</button>
-      <button onClick={handleAddComments}>Add comments</button>
-      {commentsVisible ? <ul>{commentsItems}</ul> : null}
+      <PostWrapper>
+        <PostTitle>{post.Posttitle}</PostTitle>
+        <p>{post.body}</p>
+        <ButtonWrapper>
+          <StyledButton onClick={toggleCommentsVisible}>{`${
+            commentsVisible ? "Hide" : "Show"
+          } comments`}</StyledButton>
+          <StyledButton onClick={handleAddComments}>Add comments</StyledButton>
+        </ButtonWrapper>
+        {commentsVisible ? <ul>{commentsItems}</ul> : null}
+      </PostWrapper>
     </div>
   );
 };
