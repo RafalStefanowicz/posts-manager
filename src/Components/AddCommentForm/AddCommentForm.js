@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { reduxForm, Field } from "redux-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 import addComment from "../../actions/addComment";
 import hideModal from "../../actions/hideModal";
@@ -14,7 +16,9 @@ import {
   StyledForm,
   StyledButton,
   StyledP,
-  ErrorWrapper
+  ErrorWrapper,
+  ButtonInner,
+  LoadingIconWrapper
 } from "../../styles/FormStyles";
 
 class AddCommentForm extends React.Component {
@@ -53,7 +57,12 @@ class AddCommentForm extends React.Component {
             Cancel
           </StyledButton>
           <StyledButton type="submit" disabled={submitting || invalid}>
-            Save
+            <ButtonInner>
+              <LoadingIconWrapper submitting={submitting}>
+                <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
+              </LoadingIconWrapper>
+              Save
+            </ButtonInner>
           </StyledButton>
         </ButtonsWrapper>
       </StyledForm>

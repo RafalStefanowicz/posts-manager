@@ -52,6 +52,18 @@ export const StyledButton = styled.button`
         `}
 `;
 
+export const ButtonInner = styled.span`
+  position: relative;
+`;
+
+export const LoadingIconWrapper = styled.span`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -25px;
+  display: ${props => (props.submitting ? "inline" : "none")};
+`;
+
 export const StyledP = styled.p`
   color: red;
   text-align: center;
