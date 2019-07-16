@@ -9,18 +9,18 @@ import fetchPostComments from "../../../actions/fetchPostComments";
 const withComments = Component => {
   class WithComments extends React.Component {
     componentDidMount() {
-      //only fetch if there is post
-      if (this.props.post) {
+      // prevent fetching when user manually entered url(param) of not existing id
+      // prevent fetching when user's comments ale already fetched
+      if (this.props.post && !this.props.comments.length) {
         this.props.fetchPostComments(this.props.post.id);
       }
     }
     render() {
       const comments = this.props.comments;
-      // if the user manually entered url/param of not existing post, this.props.post will be undefinded
+      // if the user manually entered url/param of not existing postId
       if (!this.props.post)
         return <InfoPage>Użytkownik nie ma posta o takim id.</InfoPage>;
-
-      return comments ? (
+      return comments.length ? (
         <Component {...this.props} comments={this.props.comments} />
       ) : (
         <Loader />
