@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Modal from "react-modal";
 
 export const StyledReactModal = styled(Modal)`
+  background-color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
