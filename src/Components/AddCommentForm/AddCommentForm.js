@@ -5,20 +5,34 @@ import { reduxForm, Field } from "redux-form";
 
 import addComment from "../../actions/addComment";
 import hideModal from "../../actions/hideModal";
+import {
+  StyledLabel,
+  StyledInput,
+  InputWrapper,
+  StyledTextArea,
+  ButtonsWrapper,
+  StyledForm,
+  StyledButton,
+  StyledP,
+  ErrorWrapper
+} from "../../styles/FormStyles";
 
 class AddCommentForm extends React.Component {
   renderInput = ({ input, label, meta }) => {
     return (
-      <div>
-        <label htmlFor={input.name}>{label}</label>
-        {input.name === "body" ? (
-          <textarea id={input.name} {...input} />
-        ) : (
-          <input id={input.name} {...input} />
-        )}
-
-        {meta.touched && meta.error && <p>{meta.error}</p>}
-      </div>
+      <>
+        <InputWrapper>
+          <StyledLabel htmlFor={input.name}>{label}</StyledLabel>
+          {input.name === "body" ? (
+            <StyledTextArea id={input.name} {...input} />
+          ) : (
+            <StyledInput id={input.name} {...input} />
+          )}
+        </InputWrapper>
+        <ErrorWrapper>
+          {meta.touched && meta.error && <StyledP>{meta.error}</StyledP>}
+        </ErrorWrapper>
+      </>
     );
   };
 
@@ -30,17 +44,19 @@ class AddCommentForm extends React.Component {
   render() {
     const { hideModal, submitting, invalid } = this.props;
     return (
-      <form onSubmit={this.props.handleSubmit(this.handleSubmit)}>
-        <Field name="name" label="name" component={this.renderInput} />
-        <Field name="email" label="email" component={this.renderInput} />
-        <Field name="body" label="body" component={this.renderInput} />
-        <button type="button" onClick={hideModal}>
-          Cancel
-        </button>
-        <button type="submit" disabled={submitting || invalid}>
-          Save
-        </button>
-      </form>
+      <StyledForm onSubmit={this.props.handleSubmit(this.handleSubmit)}>
+        <Field name="title" label="Title" component={this.renderInput} />
+        <Field name="email" label="Email" component={this.renderInput} />
+        <Field name="body" label="Body" component={this.renderInput} />
+        <ButtonsWrapper right>
+          <StyledButton type="button" onClick={hideModal}>
+            Cancel
+          </StyledButton>
+          <StyledButton type="submit" disabled={submitting || invalid}>
+            Save
+          </StyledButton>
+        </ButtonsWrapper>
+      </StyledForm>
     );
   }
 }
@@ -53,7 +69,7 @@ const validate = ({ title, body, email }) => {
     errors.title = "You must enter the title";
   }
   if (!email) {
-    errors.body = "You must enter the email";
+    errors.email = "You must enter the email";
   }
   if (!body) {
     errors.body = "You must enter some text";
