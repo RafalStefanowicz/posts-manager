@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import withComments from "./withComments";
 import {
-  CommentItem,
-  UserDetailsWrapper,
+  StyledItem,
+  StyledInputWrapper,
   StyledName,
   StyledEmail,
   StyledComment
@@ -14,13 +14,13 @@ const Comments = props => {
   const comments = props.comments;
   const commentsItems = comments.map(comment => {
     return (
-      <CommentItem key={comment.id}>
-        <UserDetailsWrapper>
+      <StyledItem key={comment.id}>
+        <StyledInputWrapper>
           <StyledName>{comment.name}</StyledName>
           <StyledEmail>{comment.email}</StyledEmail>
-        </UserDetailsWrapper>
+        </StyledInputWrapper>
         <StyledComment>{comment.body}</StyledComment>
-      </CommentItem>
+      </StyledItem>
     );
   });
   return <ul>{commentsItems}</ul>;

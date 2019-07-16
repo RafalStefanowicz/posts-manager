@@ -22,5 +22,3 @@ export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   font-size: 35px;
   color: #0b5394;
 `;
-
-export const LinkInner = styled.div``;

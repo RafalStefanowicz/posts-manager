@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import Comments from "./Comments/Comments";
 import {
-  ButtonWrapper,
-  PostWrapper,
+  StyledButtonWrapper,
+  StyledPostWrapper,
   StyledTitle,
   StyledButton
 } from "./PostDetailsStyle";
@@ -18,17 +18,17 @@ const PostDetails = props => {
 
   return (
     <div>
-      <PostWrapper>
-        <StyledTitle>{post.Posttitle}</StyledTitle>
+      <StyledPostWrapper>
+        <StyledTitle>{post.title}</StyledTitle>
         <p>{post.body}</p>
-        <ButtonWrapper>
+        <StyledButtonWrapper>
           <StyledButton onClick={toggleCommentsVisible}>{`${
             commentsVisible ? "Hide" : "Show"
           } comments`}</StyledButton>
           <StyledButton onClick={handleAddComments}>Add comments</StyledButton>
-        </ButtonWrapper>
+        </StyledButtonWrapper>
         {commentsVisible ? <Comments post={post} /> : null}
-      </PostWrapper>
+      </StyledPostWrapper>
     </div>
   );
 };

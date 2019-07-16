@@ -12,7 +12,7 @@ export const StyledReactModal = styled(Modal)`
   border: 1px solid #0b5394;
 `;
 
-export const ModalHeading = styled.h1`
+export const StyledHeading = styled.h1`
   margin-bottom: 20px;
   text-align: center;
 `;

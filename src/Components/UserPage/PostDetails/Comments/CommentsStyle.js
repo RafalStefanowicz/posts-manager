@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const CommentItem = styled.li`
+export const StyledItem = styled.li`
   padding: 10px;
   margin: 10px;
   border: 3px solid black;
 `;
 
-export const UserDetailsWrapper = styled.div`
+export const StyledInputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;

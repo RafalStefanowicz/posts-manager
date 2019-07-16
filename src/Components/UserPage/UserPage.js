@@ -6,7 +6,7 @@ import UserNav from "./UserNav/UserNav";
 import Posts from "./Posts/Posts";
 import PostDetailsContainer from "./PostDetails/PostDetailsContainer";
 import { Wrapper } from "../../styles/common";
-import { UserNavWrapper } from "./UserPageStyles";
+import { StyledUserNavWrapper } from "./UserPageStyles";
 
 class UserPage extends Component {
   render() {
@@ -16,9 +16,9 @@ class UserPage extends Component {
     const { user, posts } = this.props;
     return (
       <Wrapper>
-        <UserNavWrapper>
+        <StyledUserNavWrapper>
           <UserNav userId={userId} postId={postId} userName={user.name} />
-        </UserNavWrapper>
+        </StyledUserNavWrapper>
         {postId ? (
           <PostDetailsContainer post={searchedPost} />
         ) : (

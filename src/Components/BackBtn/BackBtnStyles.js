@@ -7,7 +7,7 @@ export const StyledButton = styled.button`
   color: #0b5394;
 `;
 
-export const Label = styled.span`
+export const StyledLabel = styled.span`
   margin: 3px;
   font-size: 20px;
 `;
