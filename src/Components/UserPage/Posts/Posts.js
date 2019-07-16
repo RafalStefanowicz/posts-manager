@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import DeletePostBtn from "../../DeletePostBtn/DeletePostBtn";
+import { StyledItem, StyledLink, StyledFontAwesomeIcon } from "./PostsStyle";
+
 const Posts = props => {
   const postItems = props.posts.map(post => {
     const { userId, id: postId, title } = post;
     return (
-      <li key={postId}>
+      <StyledItem key={postId}>
         <DeletePostBtn postId={postId} userId={userId} />
-        <Link to={`/user/${userId}/${postId}`}>
-          <h1>{title}</h1>
-          <span>ikonka</span>
-        </Link>
-      </li>
+        <StyledLink to={`/user/${userId}/${postId}`}>
+          <h2>{title}</h2>
+          <StyledFontAwesomeIcon icon={faArrowRight} />
+        </StyledLink>
+      </StyledItem>
     );
   });
   return <ul>{postItems}</ul>;
