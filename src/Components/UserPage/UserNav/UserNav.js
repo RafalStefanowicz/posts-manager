@@ -8,7 +8,7 @@ import BackBtn from "../../BackBtn/BackBtn";
 const UserNav = props => {
   const { userName, userId, postId } = props;
   return (
-    <div>
+    <>
       <BackBtn path={postId ? `/user/${userId}` : "/"}>Cofnij</BackBtn>
       <h1>{userName}</h1>
       {postId ? (
@@ -16,7 +16,7 @@ const UserNav = props => {
       ) : (
         <AddPostBtn userId={userId} />
       )}
-    </div>
+    </>
   );
 };
 UserNav.propTypes = {
