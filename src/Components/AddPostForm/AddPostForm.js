@@ -5,20 +5,34 @@ import { reduxForm, Field } from "redux-form";
 
 import addPost from "../../actions/addPost";
 import hideModal from "../../actions/hideModal";
+import {
+  StyledLabel,
+  StyledInput,
+  InputWrapper,
+  StyledTextArea,
+  ButtonsWrapper,
+  StyledForm,
+  StyledButton,
+  StyledP,
+  ErrorWrapper
+} from "../../styles/FormStyles";
 
 class AddPostForm extends React.Component {
   renderInput = ({ input, label, meta }) => {
     return (
-      <div>
-        <label htmlFor={input.name}>{label}</label>
-        {input.name === "body" ? (
-          <textarea id={input.name} {...input} />
-        ) : (
-          <input id={input.name} {...input} />
-        )}
-
-        {meta.touched && meta.error && <p>{meta.error}</p>}
-      </div>
+      <>
+        <InputWrapper>
+          <StyledLabel htmlFor={input.name}>{label}</StyledLabel>
+          {input.name === "body" ? (
+            <StyledTextArea id={input.name} {...input} rows="3" cols="30" />
+          ) : (
+            <StyledInput id={input.name} {...input} />
+          )}
+        </InputWrapper>
+        <ErrorWrapper>
+          {meta.touched && meta.error && <StyledP>{meta.error}</StyledP>}
+        </ErrorWrapper>
+      </>
     );
   };
 
@@ -29,16 +43,18 @@ class AddPostForm extends React.Component {
   render() {
     const { hideModal, submitting, invalid } = this.props;
     return (
-      <form onSubmit={this.props.handleSubmit(this.handleSubmit)}>
+      <StyledForm onSubmit={this.props.handleSubmit(this.handleSubmit)}>
         <Field name="title" label="title" component={this.renderInput} />
         <Field name="body" label="body" component={this.renderInput} />
-        <button type="button" onClick={hideModal}>
-          Cancel
-        </button>
-        <button type="submit" disabled={submitting || invalid}>
-          Save
-        </button>
-      </form>
+        <ButtonsWrapper right>
+          <StyledButton type="button" onClick={hideModal}>
+            Cancel
+          </StyledButton>
+          <StyledButton type="submit" disabled={submitting || invalid}>
+            Save
+          </StyledButton>
+        </ButtonsWrapper>
+      </StyledForm>
     );
   }
 }
