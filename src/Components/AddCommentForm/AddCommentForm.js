@@ -45,7 +45,7 @@ class AddCommentForm extends React.Component {
     const { hideModal, submitting, invalid } = this.props;
     return (
       <StyledForm onSubmit={this.props.handleSubmit(this.handleSubmit)}>
-        <Field name="title" label="Title" component={this.renderInput} />
+        <Field name="name" label="Name" component={this.renderInput} />
         <Field name="email" label="Email" component={this.renderInput} />
         <Field name="body" label="Body" component={this.renderInput} />
         <ButtonsWrapper right>
@@ -63,10 +63,10 @@ class AddCommentForm extends React.Component {
 
 AddCommentForm.propTypes = { postId: PropTypes.number.isRequired };
 
-const validate = ({ title, body, email }) => {
+const validate = ({ name, body, email }) => {
   const errors = {};
-  if (!title) {
-    errors.title = "You must enter the title";
+  if (!name) {
+    errors.name = "You must enter the name";
   }
   if (!email) {
     errors.email = "You must enter the email";
