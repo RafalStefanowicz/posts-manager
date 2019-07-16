@@ -10,14 +10,21 @@ const withUserPosts = Component => {
     componentDidMount() {
       // prevent fetching when user manually entered url(param) of not existing userId
       // prevent fetching when user's posts ale already fetched
-      if (this.props.user && !this.props.posts.length) {
-        this.props.fetchUserPosts(this.props.user.id);
+      if (this.props.error.userNotFound || this.props.posts.length) {
+        return;
       }
+      this.props.fetchUserPosts(this.props.user.id);
     }
+
     render() {
-      const { user, posts } = this.props;
+      const { user, posts, error } = this.props;
       // if user manually entered url(param) of not existing userId
-      if (user === null) return <InfoPage>Nie ma takiego użytkownika</InfoPage>;
+      if (error.userNotFound)
+        return <InfoPage>There is no user with this Id</InfoPage>;
+
+      // if user manually entered url(param) of not existing postId
+      if (error.postNotFound)
+        return <InfoPage>User doesn't have this post.</InfoPage>;
 
       return posts.length ? (
         <Component user={user} posts={posts} {...this.props} />
@@ -26,15 +33,29 @@ const withUserPosts = Component => {
       );
     }
   }
+
   WithUserPosts.displayName = `WithUserPosts(${getDisplayName(Component)})`;
 
   const mapStateToProps = (state, props) => {
-    const userId = props.match.params.userId;
+    const paramUserId = Number(props.match.params.userId);
+    const paramPostId = Number(props.match.params.postId);
+    const error = { usetNotFound: false, postNotFound: false };
+
+    const user = state.users[paramUserId];
     const userPosts = state.posts.filter(
-      post => post.userId === Number(userId)
+      post => post.userId === Number(paramUserId)
     );
-    const user = state.users[userId] || null;
-    return { user, posts: userPosts };
+
+    error.userNotFound = !user;
+    if (
+      userPosts.length &&
+      paramPostId &&
+      !userPosts.find(post => post.id === paramPostId)
+    ) {
+      error.postNotFound = true;
+    }
+
+    return { user, posts: userPosts, error };
   };
   const mapDispatchToProps = { fetchUserPosts };
   return connect(
