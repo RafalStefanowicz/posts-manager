@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import showModal from "../../actions/showModal";
 import { DELETE_POST_MODAL } from "../../constants/modalTypes";
+import { StyledButton } from "./DeletePostBtnStyles";
 
 const DeletePostBtn = props => {
   const handleDeleteClick = () => {
@@ -13,7 +16,11 @@ const DeletePostBtn = props => {
     });
   };
 
-  return <button onClick={handleDeleteClick}>Usuń Post</button>;
+  return (
+    <StyledButton onClick={handleDeleteClick}>
+      <FontAwesomeIcon icon={faTrash} />
+    </StyledButton>
+  );
 };
 
 const mapDispatchToProps = { showModal };
