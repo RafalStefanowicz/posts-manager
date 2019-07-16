@@ -1,12 +1,12 @@
 import {
-  FETCH_USER_POSTS,
+  FETCH_POSTS,
   ADD_POST,
   DELETE_POST
 } from "../actions/actionTypes";
 
 const posts = (state = [], action) => {
   switch (action.type) {
-    case FETCH_USER_POSTS:
+    case FETCH_POSTS:
       return [...state, ...action.payload];
 
     case ADD_POST:

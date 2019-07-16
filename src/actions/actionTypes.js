@@ -1,6 +1,6 @@
 export const ADD_USERS = "addUsers";
-export const FETCH_USER_POSTS = "fetchUserPosts";
-export const FETCH_POST_COMMENTS = "fetchPostComments";
+export const FETCH_POSTS = "fetchPosts";
+export const FETCH_COMMENTS = "fetchComments";
 export const ADD_POST = "addPost";
 export const ADD_COMMENT = "addComment";
 export const DELETE_POST = "deletePost";

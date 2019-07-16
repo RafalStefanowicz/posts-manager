@@ -1,8 +1,8 @@
-import { FETCH_POST_COMMENTS, ADD_COMMENT } from "../actions/actionTypes";
+import { FETCH_COMMENTS, ADD_COMMENT } from "../actions/actionTypes";
 
 const comments = (state = [], action) => {
   switch (action.type) {
-    case FETCH_POST_COMMENTS:
+    case FETCH_COMMENTS:
       return [...state, ...action.payload];
     case ADD_COMMENT:
       return [...state, action.payload];
