@@ -8,6 +8,6 @@ const deletePost = (postId, userId) => async dispatch => {
   await usersApi.delete(`/posts/${postId}`);
   dispatch({ type: DELETE_POST, payload: postId });
   dispatch(hideModal());
-  history.push(`/user/${userId}`);
+  history.push(USER + userId);
 };
 export default deletePost;
