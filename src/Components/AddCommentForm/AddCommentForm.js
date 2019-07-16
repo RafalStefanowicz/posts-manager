@@ -70,6 +70,8 @@ const validate = ({ title, body, email }) => {
   }
   if (!email) {
     errors.email = "You must enter the email";
+  } else if (!email.includes("@")) {
+    errors.email = "The email must include @";
   }
   if (!body) {
     errors.body = "You must enter some text";
