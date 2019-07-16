@@ -6,7 +6,11 @@ import Modal from "../Modal/Modal";
 
 const AddCommentModal = props => {
   const { postId, userId } = props;
-  return <Modal>{<AddCommentForm postId={postId} userId={userId} />}</Modal>;
+  return (
+    <Modal heading="Add Comment">
+      {<AddCommentForm postId={postId} userId={userId} />}
+    </Modal>
+  );
 };
 
 AddCommentModal.propTypes = {
