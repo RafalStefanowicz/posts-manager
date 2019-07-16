@@ -5,17 +5,18 @@ import PropTypes from "prop-types";
 import Modal from "../Modal/Modal";
 import hideModal from "../../actions/hideModal";
 import deletePost from "../../actions/deletePost";
-
+import { StyledButton, ButtonsWrapper } from "../../styles/FormStyles";
 const DeletePostModal = props => {
   const { postId, userId } = props;
   const handleDeleteClick = () => {
     props.deletePost(postId, userId);
   };
   return (
-    <Modal>
-      <h1>{`Do u want to delete post ${postId} ?`}</h1>
-      <button onClick={hideModal}>Cancel</button>
-      <button onClick={handleDeleteClick}>Delete</button>
+    <Modal heading={`Do u want to delete post ${postId} ?`}>
+      <ButtonsWrapper>
+        <StyledButton onClick={hideModal}>Cancel</StyledButton>
+        <StyledButton onClick={handleDeleteClick}>Delete</StyledButton>
+      </ButtonsWrapper>
     </Modal>
   );
 };
