@@ -6,3 +6,5 @@ export const ADD_COMMENT = "addComment";
 export const DELETE_POST = "deletePost";
 export const SHOW_MODAL = "showModal";
 export const HIDE_MODAL = "hideModal";
+export const POSTS_FETCHED = "postsFetched";
+export const COMMENTS_FETCHED = "commentsFetched";
