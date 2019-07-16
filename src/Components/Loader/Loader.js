@@ -2,14 +2,16 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-import { StyledHeading, StyledLabel } from "./LoaderStyles";
+import { StyledLabel } from "./LoaderStyles";
+import { StyledInfoHeading } from "../../styles/common";
 
 const Loader = () => {
   return (
-    <StyledHeading>
+    <StyledInfoHeading>
       <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
       <StyledLabel>Logowanie..</StyledLabel>
-    </StyledHeading>
+    </StyledInfoHeading>
   );
 };
+
 export default Loader;

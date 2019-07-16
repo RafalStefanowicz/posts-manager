@@ -1,10 +1,9 @@
 import React from "react";
 
+import { StyledInfoHeading } from "../../styles/common";
+
 const InfoPage = props => {
-  return (
-    <div>
-      <h1>{props.children}</h1>
-    </div>
-  );
+  return <StyledInfoHeading>{props.children}</StyledInfoHeading>;
 };
+
 export default InfoPage;
