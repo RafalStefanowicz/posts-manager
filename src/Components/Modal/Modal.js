@@ -1,29 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import { default as ReactModal } from "react-modal";
-import styled from "styled-components";
-
+import PropTypes from "prop-types";
 import hideModal from "../../actions/hideModal";
+import { StyledReactModal, ModalInner, ModalHeading } from "./ModalStyles";
 
-const StyledModal = styled(ReactModal)`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 30%;
-  height: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid black;
-`;
-
-ReactModal.setAppElement(document.getElementById("root"));
+StyledReactModal.setAppElement(document.getElementById("root"));
 
 const Modal = props => {
   return (
-    <StyledModal isOpen={true} onRequestClose={props.hideModal}>
-      <div>{props.children}</div>
-    </StyledModal>
+    <StyledReactModal isOpen={true} onRequestClose={props.hideModal}>
+      <ModalInner>
+        <ModalHeading>{props.heading}</ModalHeading>
+        {props.children}
+      </ModalInner>
+    </StyledReactModal>
   );
 };
+
+Modal.propTypes = { heading: PropTypes.string.isRequired };
 
 const mapDispatchToProps = { hideModal };
 export default connect(
