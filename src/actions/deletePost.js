@@ -10,4 +10,5 @@ const deletePost = (postId, userId) => async dispatch => {
   dispatch(hideModal());
   history.push(USER + userId);
 };
+
 export default deletePost;

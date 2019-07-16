@@ -13,4 +13,5 @@ const fetchUsers = () => async dispatch => {
     console.log(error);
   }
 };
+
 export default fetchUsers;

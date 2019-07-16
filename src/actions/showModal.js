@@ -4,4 +4,5 @@ const showModal = (modalType, modalProps) => ({
   type: SHOW_MODAL,
   payload: { modalType, modalProps }
 });
+
 export default showModal;
