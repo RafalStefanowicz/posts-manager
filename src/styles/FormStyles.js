@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const InputWrapper = styled.div`
+export const StyledInputWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -28,7 +28,7 @@ export const StyledTextArea = styled.textarea`
   font-size: 20px;
 `;
 
-export const ButtonsWrapper = styled.div`
+export const StyledButtonsWrapper = styled.div`
   text-align: ${props => (props.right ? "right" : "center")};
 `;
 
@@ -52,11 +52,11 @@ export const StyledButton = styled.button`
         `}
 `;
 
-export const ButtonInner = styled.span`
+export const StyledButtonInner = styled.span`
   position: relative;
 `;
 
-export const LoadingIconWrapper = styled.span`
+export const StyledLoadingIconWrapper = styled.span`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -74,6 +74,6 @@ export const StyledForm = styled.form`
   margin: 0 auto;
 `;
 
-export const ErrorWrapper = styled.div`
+export const StyledErrorWrapper = styled.div`
   height: 30px;
 `;

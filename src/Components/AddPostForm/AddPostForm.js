@@ -10,32 +10,32 @@ import hideModal from "../../actions/hideModal";
 import {
   StyledLabel,
   StyledInput,
-  InputWrapper,
+  StyledInputWrapper,
   StyledTextArea,
-  ButtonsWrapper,
+  StyledButtonsWrapper,
   StyledForm,
   StyledButton,
   StyledP,
-  ErrorWrapper,
-  ButtonInner,
-  LoadingIconWrapper
+  StyledErrorWrapper,
+  StyledButtonInner,
+  StyledLoadingIconWrapper
 } from "../../styles/FormStyles";
 
 class AddPostForm extends React.Component {
   renderInput = ({ input, label, meta }) => {
     return (
       <>
-        <InputWrapper>
+        <StyledInputWrapper>
           <StyledLabel htmlFor={input.name}>{label}</StyledLabel>
           {input.name === "body" ? (
             <StyledTextArea id={input.name} {...input} rows="3" cols="30" />
           ) : (
             <StyledInput id={input.name} {...input} />
           )}
-        </InputWrapper>
-        <ErrorWrapper>
+        </StyledInputWrapper>
+        <StyledErrorWrapper>
           {meta.touched && meta.error && <StyledP>{meta.error}</StyledP>}
-        </ErrorWrapper>
+        </StyledErrorWrapper>
       </>
     );
   };
@@ -50,19 +50,19 @@ class AddPostForm extends React.Component {
       <StyledForm onSubmit={this.props.handleSubmit(this.handleSubmit)}>
         <Field name="title" label="title" component={this.renderInput} />
         <Field name="body" label="body" component={this.renderInput} />
-        <ButtonsWrapper right>
+        <StyledButtonsWrapper right>
           <StyledButton type="button" onClick={hideModal}>
             Cancel
           </StyledButton>
           <StyledButton type="submit" disabled={submitting || invalid}>
-            <ButtonInner>
-              <LoadingIconWrapper submitting={submitting}>
+            <StyledButtonInner>
+              <StyledLoadingIconWrapper submitting={submitting}>
                 <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
-              </LoadingIconWrapper>
+              </StyledLoadingIconWrapper>
               Save
-            </ButtonInner>
+            </StyledButtonInner>
           </StyledButton>
-        </ButtonsWrapper>
+        </StyledButtonsWrapper>
       </StyledForm>
     );
   }
