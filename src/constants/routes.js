@@ -1,2 +1,3 @@
 export const USERSLIST = "/";
-export const USER = "/user/:userId/:postId?";
+export const USERPAGE = "/user/:userId/:postId?";
+export const USER = "/user/";
