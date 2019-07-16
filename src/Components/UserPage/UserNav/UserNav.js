@@ -4,13 +4,14 @@ import PropTypes from "prop-types";
 import DeletePostBtn from "../../DeletePostBtn/DeletePostBtn";
 import AddPostBtn from "../../AddPostBtn/AddPostBtn";
 import BackBtn from "../../BackBtn/BackBtn";
+import { StyledName } from "./UserNavStyles";
 
 const UserNav = props => {
   const { userName, userId, postId } = props;
   return (
     <>
       <BackBtn path={postId ? `/user/${userId}` : "/"}>Cofnij</BackBtn>
-      <h1>{userName}</h1>
+      <StyledName>{userName}</StyledName>
       {postId ? (
         <DeletePostBtn userId={userId} postId={postId} />
       ) : (
