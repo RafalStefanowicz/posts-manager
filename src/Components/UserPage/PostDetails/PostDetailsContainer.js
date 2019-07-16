@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { compose } from "redux";
 import PropTypes from "prop-types";
 
 import { ADD_COMMENT_MODAL } from "../../../constants/modalTypes";
 import showModal from "../../../actions/showModal";
-import withComments from "./withComments";
 import PostDetails from "./PostDetails";
 
 class PostDetailsContainer extends Component {
@@ -20,11 +18,10 @@ class PostDetailsContainer extends Component {
     }));
   };
   render() {
-    const { comments, post } = this.props;
+    const { post } = this.props;
 
     return (
       <PostDetails
-        comments={comments}
         post={post}
         commentsVisible={this.state.commentsVisible}
         handleAddComments={this.handleAddComments}
@@ -35,15 +32,11 @@ class PostDetailsContainer extends Component {
 }
 
 PostDetails.propTypes = {
-  post: PropTypes.object.isRequired,
-  comments: PropTypes.array.isRequired
+  post: PropTypes.object.isRequired
 };
 
 const mapDispatchToProps = { showModal };
-export default compose(
-  connect(
-    null,
-    mapDispatchToProps
-  ),
-  withComments
+export default connect(
+  null,
+  mapDispatchToProps
 )(PostDetailsContainer);
