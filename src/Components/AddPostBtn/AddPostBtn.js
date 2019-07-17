@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { ADD_POST_MODAL } from "../../constants/modalTypes";
 import showModal from "../../actions/showModal";
@@ -10,7 +12,11 @@ const AddPostBtn = props => {
     props.showModal(ADD_POST_MODAL, { userId: props.userId });
   };
 
-  return <StyledButton onClick={handleAddPost}>+</StyledButton>;
+  return (
+    <StyledButton onClick={handleAddPost}>
+      <FontAwesomeIcon icon={faPlus} />
+    </StyledButton>
+  );
 };
 
 AddPostBtn.propTypes = { userId: PropTypes.number.isRequired };
