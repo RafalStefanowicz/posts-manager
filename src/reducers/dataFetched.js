@@ -8,11 +8,13 @@ const dataFetched = (state = INITIAL_STATE, action) => {
         ...state,
         postsFromUser: [...state.postsFromUser, action.payload]
       };
+
     case COMMENTS_FETCHED:
       return {
         ...state,
         commentsFromPost: [...state.commentsFromPost, action.payload]
       };
+
     default:
       return state;
   }
