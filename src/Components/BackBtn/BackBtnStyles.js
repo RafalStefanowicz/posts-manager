@@ -5,6 +5,9 @@ export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   color: #0b5394;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledLabel = styled.span`

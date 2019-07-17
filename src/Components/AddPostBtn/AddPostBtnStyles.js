@@ -10,4 +10,7 @@ export const StyledButton = styled.button`
   font-size: 25px;
   color: #fff;
   background-color: #0b5394;
+  :hover {
+    cursor: pointer;
+  }
 `;

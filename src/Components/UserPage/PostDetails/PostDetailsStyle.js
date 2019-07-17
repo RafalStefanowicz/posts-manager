@@ -8,6 +8,9 @@ export const StyledButtonWrapper = styled.div`
 
 export const StyledButton = styled.button`
   color: #0b5394;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledPostWrapper = styled.div`

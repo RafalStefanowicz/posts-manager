@@ -21,10 +21,6 @@ const GlobalStyle = createGlobalStyle`
         outline: 0;
     }
 
-    button:hover {
-        cursor: pointer;
-    }
-
     li {
        list-style-type: none;
     }
