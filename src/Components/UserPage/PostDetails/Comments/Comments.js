@@ -8,7 +8,7 @@ import {
   StyledName,
   StyledEmail,
   StyledComment
-} from "./CommentsStyle";
+} from "./commentsStyle";
 
 const Comments = props => {
   const comments = props.comments;

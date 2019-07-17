@@ -6,7 +6,7 @@ import UserNav from "./UserNav/UserNav";
 import Posts from "./Posts/Posts";
 import PostDetailsContainer from "./PostDetails/PostDetailsContainer";
 import { Wrapper } from "../../styles/common";
-import { StyledUserNavWrapper } from "./UserPageStyles";
+import { StyledUserNavWrapper } from "./userPageStyles";
 
 class UserPage extends Component {
   render() {

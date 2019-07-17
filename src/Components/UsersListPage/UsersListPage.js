@@ -9,7 +9,7 @@ import {
   StyledName,
   StyledDetails,
   StyledButton
-} from "./UsersListPageStyle";
+} from "./usersListPageStyle";
 
 const UserListPage = props => {
   const users = props.users;

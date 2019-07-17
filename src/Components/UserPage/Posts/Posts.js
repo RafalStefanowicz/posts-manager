@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import DeletePostBtn from "../../DeletePostBtn/DeletePostBtn";
-import { StyledItem, StyledLink, StyledFontAwesomeIcon } from "./PostsStyle";
+import { StyledItem, StyledLink, StyledFontAwesomeIcon } from "./postsStyle";
 
 const Posts = props => {
   const postItems = props.posts.map(post => {

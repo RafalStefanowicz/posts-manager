@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import hideModal from "../../actions/hideModal";
-import { StyledReactModal, ModalInner, StyledHeading } from "./ModalStyles";
+import { StyledReactModal, ModalInner, StyledHeading } from "./modalStyles";
 
 StyledReactModal.setAppElement(document.getElementById("root"));
 

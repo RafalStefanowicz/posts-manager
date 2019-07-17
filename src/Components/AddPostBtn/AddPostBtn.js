@@ -6,7 +6,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { ADD_POST_MODAL } from "../../constants/modalTypes";
 import showModal from "../../actions/showModal";
-import { StyledButton } from "./AddPostBtnStyles";
+import { StyledButton } from "./addPostBtnStyles";
 const AddPostBtn = props => {
   const handleAddPost = () => {
     props.showModal(ADD_POST_MODAL, { userId: props.userId });

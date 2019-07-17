@@ -6,7 +6,7 @@ import {
   StyledButton,
   StyledFontAwesomeIcon,
   StyledLabel
-} from "./BackBtnStyles";
+} from "./backBtnStyles";
 const BackButton = props => {
   const handleClick = () => {
     props.history.push(props.path);

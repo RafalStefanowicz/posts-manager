@@ -13,7 +13,7 @@ import {
   StyledForm,
   StyledP,
   StyledErrorWrapper
-} from "../../styles/FormStyles";
+} from "../../styles/formStyles";
 
 class AddPostForm extends React.Component {
   renderInput = ({ input, label, meta }) => {

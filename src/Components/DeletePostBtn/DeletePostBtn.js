@@ -6,7 +6,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import showModal from "../../actions/showModal";
 import { DELETE_POST_MODAL } from "../../constants/modalTypes";
-import { StyledButton } from "./DeletePostBtnStyles";
+import { StyledButton } from "./deletePostBtnStyles";
 
 const DeletePostBtn = props => {
   const handleDeleteClick = () => {

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import DeletePostBtn from "../../DeletePostBtn/DeletePostBtn";
 import AddPostBtn from "../../AddPostBtn/AddPostBtn";
 import BackBtn from "../../BackBtn/BackBtn";
-import { StyledName } from "./UserNavStyles";
+import { StyledName } from "./userNavStyles";
 
 const UserNav = props => {
   const { userName, userIdParam, postIdParam } = props;

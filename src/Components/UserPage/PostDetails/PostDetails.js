@@ -7,7 +7,7 @@ import {
   StyledPostWrapper,
   StyledTitle,
   StyledButton
-} from "./PostDetailsStyle";
+} from "./postDetailsStyle";
 
 const PostDetails = props => {
   const {
