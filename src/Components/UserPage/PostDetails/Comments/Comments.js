@@ -12,6 +12,7 @@ import {
 
 const Comments = props => {
   const comments = props.comments;
+
   const commentsItems = comments.map(comment => {
     return (
       <StyledItem key={comment.id}>
@@ -23,6 +24,7 @@ const Comments = props => {
       </StyledItem>
     );
   });
+
   return <ul>{commentsItems}</ul>;
 };
 

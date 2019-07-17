@@ -8,10 +8,11 @@ import {
   StyledTitle,
   StyledButton
 } from "./PostDetailsStyle";
+
 const PostDetails = props => {
   const {
     post,
-    commentsVisible,
+    areCommentsVisible,
     toggleCommentsVisible,
     handleAddComments
   } = props;
@@ -23,18 +24,19 @@ const PostDetails = props => {
         <p>{post.body}</p>
         <StyledButtonWrapper>
           <StyledButton onClick={toggleCommentsVisible}>{`${
-            commentsVisible ? "Hide" : "Show"
+            areCommentsVisible ? "Hide" : "Show"
           } comments`}</StyledButton>
           <StyledButton onClick={handleAddComments}>Add comments</StyledButton>
         </StyledButtonWrapper>
-        {commentsVisible ? <Comments post={post} /> : null}
+        {areCommentsVisible ? <Comments post={post} /> : null}
       </StyledPostWrapper>
     </div>
   );
 };
+
 PostDetails.propTypes = {
   post: PropTypes.object.isRequired,
-  commentsVisible: PropTypes.bool.isRequired,
+  areCommentsVisible: PropTypes.bool.isRequired,
   toggleCommentsVisible: PropTypes.func.isRequired,
   handleAddComments: PropTypes.func.isRequired
 };

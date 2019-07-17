@@ -5,6 +5,7 @@ import { USERSLIST, USERPAGE } from "../../constants/routes";
 import UserListPage from "../UsersListPage/UsersListPage";
 import UserPage from "../UserPage/UserPage";
 import history from "../../history/history";
+
 const Page = () => {
   return (
     <Router history={history}>
@@ -15,4 +16,5 @@ const Page = () => {
     </Router>
   );
 };
+
 export default Page;

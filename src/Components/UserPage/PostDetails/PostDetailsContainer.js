@@ -7,23 +7,25 @@ import showModal from "../../../actions/showModal";
 import PostDetails from "./PostDetails";
 
 class PostDetailsContainer extends Component {
-  state = { commentsVisible: false };
+  state = { areCommentsVisible: false };
+
   handleAddComments = () => {
     const { showModal, post } = this.props;
     showModal(ADD_COMMENT_MODAL, { postId: post.id });
   };
+
   toggleCommentsVisible = () => {
     this.setState(prevState => ({
-      commentsVisible: !prevState.commentsVisible
+      areCommentsVisible: !prevState.areCommentsVisible
     }));
   };
+
   render() {
     const { post } = this.props;
-
     return (
       <PostDetails
         post={post}
-        commentsVisible={this.state.commentsVisible}
+        areCommentsVisible={this.state.areCommentsVisible}
         handleAddComments={this.handleAddComments}
         toggleCommentsVisible={this.toggleCommentsVisible}
       />

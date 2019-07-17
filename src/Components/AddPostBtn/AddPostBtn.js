@@ -9,6 +9,7 @@ const AddPostBtn = props => {
   const handleAddPost = () => {
     props.showModal(ADD_POST_MODAL, { userId: props.userId });
   };
+
   return <StyledButton onClick={handleAddPost}>+</StyledButton>;
 };
 
