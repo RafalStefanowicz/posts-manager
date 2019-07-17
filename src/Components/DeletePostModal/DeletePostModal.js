@@ -3,22 +3,25 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Modal from "../Modal/Modal";
-import hideModal from "../../actions/hideModal";
+import ModalBtns from "../ModalBtns/ModalBtns";
+import changeIsDeletingState from "../../actions/changeIsDeletingState";
 import deletePost from "../../actions/deletePost";
-import { StyledButton, StyledButtonsWrapper } from "../../styles/FormStyles";
 const DeletePostModal = props => {
   const { postId, userId } = props;
 
   const handleDeleteClick = () => {
+    props.changeIsDeletingState(true);
     props.deletePost(postId, userId);
   };
 
   return (
     <Modal heading={`Do u want to delete post ${postId} ?`}>
-      <StyledButtonsWrapper>
-        <StyledButton onClick={hideModal}>Cancel</StyledButton>
-        <StyledButton onClick={handleDeleteClick}>Delete</StyledButton>
-      </StyledButtonsWrapper>
+      <ModalBtns
+        handleSubmit={handleDeleteClick}
+        disabled={props.isDeleting}
+        submitting={props.isDeleting}
+        action="Delete"
+      />
     </Modal>
   );
 };
@@ -28,9 +31,11 @@ DeletePostModal.propTypes = {
   userId: PropTypes.number.isRequired
 };
 
-const mapDispatchToProps = { deletePost, hideModal };
+const mapStateToPropst = state => ({ isDeleting: state.isDeleting });
+
+const mapDispatchToProps = { deletePost, changeIsDeletingState };
 
 export default connect(
-  null,
+  mapStateToPropst,
   mapDispatchToProps
 )(DeletePostModal);
