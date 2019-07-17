@@ -28,4 +28,8 @@ export const StyledButton = styled.button`
   margin: 8px 0;
   border: 1px solid black;
   font-size: 30px;
+  :hover {
+    background-color: #0b5394;
+    color: #fff;
+  }
 `;
