@@ -47,7 +47,6 @@ class AddCommentForm extends React.Component {
         <Field name="email" label="Email" component={this.renderInput} />
         <Field name="body" label="Body" component={this.renderInput} />
         <ModalBtns
-          handleSubmit={this.handleSubmit}
           disabled={submitting || invalid}
           submitting={submitting}
           action="Save"

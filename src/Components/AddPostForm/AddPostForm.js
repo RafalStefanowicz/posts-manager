@@ -45,7 +45,6 @@ class AddPostForm extends React.Component {
         <Field name="title" label="title" component={this.renderInput} />
         <Field name="body" label="body" component={this.renderInput} />
         <ModalBtns
-          handleSubmit={this.handleSubmit}
           disabled={submitting || invalid}
           submitting={submitting}
           action="Save"
