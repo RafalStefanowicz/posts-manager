@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import fetchPosts from "../../actions/fetchPosts";
 import InfoPage from "../InfoPage/InfoPage";
 import Loader from "../Loader/Loader";
@@ -32,6 +34,8 @@ const withUserPosts = Component => {
     }
   }
 
+  WithUserPosts.propTypes = { match: PropTypes.object.isRequired };
+
   WithUserPosts.displayName = `WithUserPosts(${getDisplayName(Component)})`;
 
   const mapStateToProps = (state, props) => {
@@ -45,7 +49,6 @@ const withUserPosts = Component => {
     const userPosts = state.posts.filter(
       post => post.userId === Number(paramUserId)
     );
-
     const arePostsFetched = state.dataFetched.postsFromUser.includes(
       paramUserId
     );
@@ -57,10 +60,10 @@ const withUserPosts = Component => {
     ) {
       error.postNotFound = true;
     }
-
     return { user, posts: userPosts, error, arePostsFetched };
   };
   const mapDispatchToProps = { fetchPosts };
+
   return connect(
     mapStateToProps,
     mapDispatchToProps
