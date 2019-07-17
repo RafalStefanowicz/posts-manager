@@ -7,23 +7,26 @@ import BackBtn from "../../BackBtn/BackBtn";
 import { StyledName } from "./UserNavStyles";
 
 const UserNav = props => {
-  const { userName, userId, postId } = props;
+  const { userName, userIdParam, postIdParam } = props;
   return (
     <>
-      <BackBtn path={postId ? `/user/${userId}` : "/"}>Cofnij</BackBtn>
+      <BackBtn path={postIdParam ? `/user/${userIdParam}` : "/"}>
+        Cofnij
+      </BackBtn>
       <StyledName>{userName}</StyledName>
-      {postId ? (
-        <DeletePostBtn userId={userId} postId={postId} />
+      {postIdParam ? (
+        <DeletePostBtn userId={userIdParam} postId={postIdParam} />
       ) : (
-        <AddPostBtn userId={userId} />
+        <AddPostBtn userId={userIdParam} />
       )}
     </>
   );
 };
+
 UserNav.propTypes = {
   userName: PropTypes.string.isRequired,
-  userId: PropTypes.number.isRequired,
-  postId: PropTypes.number
+  userIdParam: PropTypes.number.isRequired,
+  postIdParam: PropTypes.number
 };
 
 export default UserNav;

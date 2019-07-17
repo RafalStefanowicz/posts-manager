@@ -10,16 +10,21 @@ import { StyledUserNavWrapper } from "./UserPageStyles";
 
 class UserPage extends Component {
   render() {
-    const userId = Number(this.props.match.params.userId);
-    const postId = Number(this.props.match.params.postId);
-    const searchedPost = this.props.posts.find(post => post.id === postId);
+    const userIdParam = Number(this.props.match.params.userId);
+    const postIdParam = Number(this.props.match.params.postId);
+    const searchedPost = this.props.posts.find(post => post.id === postIdParam);
     const { user, posts } = this.props;
     return (
       <Wrapper>
         <StyledUserNavWrapper>
-          <UserNav userId={userId} postId={postId} userName={user.name} />
+          <UserNav
+            userIdParam={userIdParam}
+            postIdParam={postIdParam}
+            userName={user.name}
+          />
         </StyledUserNavWrapper>
-        {postId ? (
+        {/* if there is postIdParam print PostDetailsContainer, if not print all Posts */}
+        {postIdParam ? (
           <PostDetailsContainer post={searchedPost} />
         ) : (
           <Posts posts={posts} />
@@ -28,6 +33,7 @@ class UserPage extends Component {
     );
   }
 }
+
 UserPage.propTypes = {
   match: PropTypes.object.isRequired,
   posts: PropTypes.array.isRequired,
