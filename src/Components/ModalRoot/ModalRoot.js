@@ -13,9 +13,11 @@ import AddCommentModal from "../AddCommentModal/AddCommentModal";
 const ModalRoot = props => {
   const modalType = props.modal.modalType;
   const modalProps = props.modal.modalProps;
+
   switch (modalType) {
     case ADD_POST_MODAL:
       return <AddPostModal userId={modalProps.userId} />;
+
     case DELETE_POST_MODAL:
       return (
         <DeletePostModal
@@ -23,8 +25,10 @@ const ModalRoot = props => {
           userId={modalProps.userId}
         />
       );
+
     case ADD_COMMENT_MODAL:
       return <AddCommentModal postId={modalProps.postId} />;
+
     default:
       return null;
   }
