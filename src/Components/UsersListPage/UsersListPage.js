@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { USER } from "../../constants/routes";
 import { Wrapper } from "../../styles/common";
 import {
   StyledList,
@@ -16,7 +17,7 @@ const UserListPage = props => {
 
   const onClick = event => {
     const userId = event.currentTarget.id;
-    props.history.push(`/user/${userId}`);
+    props.history.push(USER + userId);
   };
 
   const userItems = usersArray.map(user => {
@@ -36,10 +37,11 @@ const UserListPage = props => {
 
   return (
     <Wrapper>
-      <StyledList> {userItems}</StyledList>{" "}
+      <StyledList>{userItems}</StyledList>
     </Wrapper>
   );
 };
 
 const mapStateToProps = state => ({ users: state.users });
+
 export default connect(mapStateToProps)(UserListPage);
