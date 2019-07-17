@@ -2,23 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { reduxForm, Field } from "redux-form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
+import ModalBtns from "../ModalBtns/ModalBtns";
 import addPost from "../../actions/addPost";
-import hideModal from "../../actions/hideModal";
 import {
   StyledLabel,
   StyledInput,
   StyledInputWrapper,
   StyledTextArea,
-  StyledButtonsWrapper,
   StyledForm,
-  StyledButton,
   StyledP,
-  StyledErrorWrapper,
-  StyledButtonInner,
-  StyledLoadingIconWrapper
+  StyledErrorWrapper
 } from "../../styles/FormStyles";
 
 class AddPostForm extends React.Component {
@@ -45,24 +39,18 @@ class AddPostForm extends React.Component {
   };
 
   render() {
-    const { hideModal, submitting, invalid } = this.props;
+    const { submitting, invalid } = this.props;
     return (
       <StyledForm onSubmit={this.props.handleSubmit(this.handleSubmit)}>
         <Field name="title" label="title" component={this.renderInput} />
         <Field name="body" label="body" component={this.renderInput} />
-        <StyledButtonsWrapper right>
-          <StyledButton type="button" onClick={hideModal}>
-            Cancel
-          </StyledButton>
-          <StyledButton type="submit" disabled={submitting || invalid}>
-            <StyledButtonInner>
-              <StyledLoadingIconWrapper submitting={submitting}>
-                <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
-              </StyledLoadingIconWrapper>
-              Save
-            </StyledButtonInner>
-          </StyledButton>
-        </StyledButtonsWrapper>
+        <ModalBtns
+          handleSubmit={this.handleSubmit}
+          disabled={submitting || invalid}
+          submitting={submitting}
+          action="Save"
+          rightPosition={true}
+        />
       </StyledForm>
     );
   }
@@ -85,7 +73,7 @@ const AddPostFormWithReduxForm = reduxForm({ form: "addPostForm", validate })(
   AddPostForm
 );
 
-const mapDispatchToProps = { addPost, hideModal };
+const mapDispatchToProps = { addPost };
 export default connect(
   null,
   mapDispatchToProps

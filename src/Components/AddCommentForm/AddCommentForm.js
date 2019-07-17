@@ -2,23 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { reduxForm, Field } from "redux-form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
+import ModalBtns from "../ModalBtns/ModalBtns";
 import addComment from "../../actions/addComment";
-import hideModal from "../../actions/hideModal";
 import {
   StyledLabel,
   StyledInput,
   StyledInputWrapper,
   StyledTextArea,
-  StyledButtonsWrapper,
   StyledForm,
-  StyledButton,
   StyledP,
-  StyledErrorWrapper,
-  StyledButtonInner,
-  StyledLoadingIconWrapper
+  StyledErrorWrapper
 } from "../../styles/FormStyles";
 
 class AddCommentForm extends React.Component {
@@ -46,25 +40,19 @@ class AddCommentForm extends React.Component {
   };
 
   render() {
-    const { hideModal, submitting, invalid } = this.props;
+    const { submitting, invalid } = this.props;
     return (
       <StyledForm onSubmit={this.props.handleSubmit(this.handleSubmit)}>
         <Field name="name" label="Name" component={this.renderInput} />
         <Field name="email" label="Email" component={this.renderInput} />
         <Field name="body" label="Body" component={this.renderInput} />
-        <StyledButtonsWrapper right>
-          <StyledButton type="button" onClick={hideModal}>
-            Cancel
-          </StyledButton>
-          <StyledButton type="submit" disabled={submitting || invalid}>
-            <StyledButtonInner>
-              <StyledLoadingIconWrapper submitting={submitting}>
-                <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
-              </StyledLoadingIconWrapper>
-              Save
-            </StyledButtonInner>
-          </StyledButton>
-        </StyledButtonsWrapper>
+        <ModalBtns
+          handleSubmit={this.handleSubmit}
+          disabled={submitting || invalid}
+          submitting={submitting}
+          action="Save"
+          rightPosition={true}
+        />
       </StyledForm>
     );
   }
@@ -93,7 +81,7 @@ const AddCommentFormWithReduxForm = reduxForm({
   validate
 })(AddCommentForm);
 
-const mapDispatchToProps = { addComment, hideModal };
+const mapDispatchToProps = { addComment };
 export default connect(
   null,
   mapDispatchToProps
