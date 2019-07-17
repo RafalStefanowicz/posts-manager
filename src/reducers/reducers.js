@@ -6,6 +6,7 @@ import posts from "./posts";
 import comments from "./comments";
 import dataFetched from "./dataFetched";
 import modal from "./modal";
+import isDeleting from "./isDeleting";
 
 const reducers = combineReducers({
   users,
@@ -13,6 +14,7 @@ const reducers = combineReducers({
   comments,
   dataFetched,
   modal,
+  isDeleting,
   form: formReducer
 });
 

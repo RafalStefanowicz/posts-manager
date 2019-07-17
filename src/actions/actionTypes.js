@@ -8,3 +8,4 @@ export const SHOW_MODAL = "showModal";
 export const HIDE_MODAL = "hideModal";
 export const POSTS_FETCHED = "postsFetched";
 export const COMMENTS_FETCHED = "commentsFetched";
+export const CHANGE_IS_DELETING_STATE = "changeIsDeletingState";
