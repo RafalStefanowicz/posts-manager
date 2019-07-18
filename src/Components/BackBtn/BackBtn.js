@@ -1,21 +1,19 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import {
-  StyledButton,
+  StyledLink,
   StyledFontAwesomeIcon,
   StyledLabel
 } from "./backBtnStyles";
+
 const BackButton = props => {
-  const handleClick = () => {
-    props.history.push(props.path);
-  };
   return (
-    <StyledButton onClick={handleClick}>
+    <StyledLink to={props.path}>
       <StyledFontAwesomeIcon icon={faArrowLeft} />
       <StyledLabel>Back</StyledLabel>
-    </StyledButton>
+    </StyledLink>
   );
 };
-export default withRouter(BackButton);
+
+export default BackButton;

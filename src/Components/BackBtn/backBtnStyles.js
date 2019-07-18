@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
-export const StyledButton = styled.button`
+export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   color: #0b5394;

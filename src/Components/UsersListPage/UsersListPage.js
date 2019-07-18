@@ -8,17 +8,12 @@ import {
   StyledItem,
   StyledName,
   StyledDetails,
-  StyledButton
+  StyledLink
 } from "./usersListPageStyle";
 
 const UserListPage = props => {
   const users = props.users;
   const usersArray = Object.values(users);
-
-  const onClick = event => {
-    const userId = event.currentTarget.id;
-    props.history.push(USER + userId);
-  };
 
   const userItems = usersArray.map(user => {
     const { id, name, email, phone, website } = user;
@@ -28,9 +23,7 @@ const UserListPage = props => {
         <StyledDetails>{email}</StyledDetails>
         <StyledDetails>{phone}</StyledDetails>
         <StyledDetails>{website}</StyledDetails>
-        <StyledButton onClick={onClick} id={id}>
-          Details
-        </StyledButton>
+        <StyledLink to={USER + id}>Details</StyledLink>
       </StyledItem>
     );
   });
