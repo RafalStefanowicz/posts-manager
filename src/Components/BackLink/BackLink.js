@@ -5,7 +5,7 @@ import {
   StyledLink,
   StyledFontAwesomeIcon,
   StyledLabel
-} from "./backBtnStyles";
+} from "./backLinkStyles";
 
 const BackButton = props => {
   return (
