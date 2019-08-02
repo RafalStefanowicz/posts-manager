@@ -6,7 +6,7 @@ import UserNav from "./UserNav/UserNav";
 import Posts from "./Posts/Posts";
 import PostDetailsContainer from "./PostDetails/PostDetailsContainer";
 import { Wrapper } from "../../styles/common";
-import { StyledUserNavWrapper } from "./userPageStyles";
+import { StyledUserNavWrapper, StyledUserMainWrapper } from "./userPageStyles";
 
 class UserPage extends Component {
   render() {
@@ -23,12 +23,14 @@ class UserPage extends Component {
             userName={user.name}
           />
         </StyledUserNavWrapper>
-        {/* if there is postIdParam print PostDetailsContainer, if not print all Posts */}
-        {postIdParam ? (
-          <PostDetailsContainer post={searchedPost} />
-        ) : (
-          <Posts posts={posts} />
-        )}
+        <StyledUserMainWrapper>
+          {/* if there is postIdParam print PostDetailsContainer, if not print all Posts */}
+          {postIdParam ? (
+            <PostDetailsContainer post={searchedPost} />
+          ) : (
+            <Posts posts={posts} />
+          )}
+        </StyledUserMainWrapper>
       </Wrapper>
     );
   }
