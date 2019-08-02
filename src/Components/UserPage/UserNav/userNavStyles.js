@@ -6,7 +6,8 @@ export const StyledName = styled.h1`
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  font-size: 32px;
   @media (max-width: 768px) {
-    font-size: 1.8em;
+    font-size: 28px;
   }
 `;
