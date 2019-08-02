@@ -5,7 +5,7 @@ export const StyledButtonsWrapper = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  width: 95px;
+  width: 105px;
   padding: 10px;
   margin: 10px;
   border: 3px solid black;
@@ -40,6 +40,6 @@ export const StyledLoadingIconWrapper = styled.span`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -24px;
+  left: -22px;
   display: ${props => (props.submitting ? "inline" : "none")};
 `;

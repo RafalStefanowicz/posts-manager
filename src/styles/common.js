@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledInfoHeading = styled.h1`
-  margin: 80px;
+  margin-top: 80px;
   font-size: 40px;
   text-align: center;
   color: #0b5394;
