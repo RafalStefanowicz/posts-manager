@@ -14,6 +14,9 @@ export const StyledLink = styled(Link)`
 export const StyledLabel = styled.span`
   margin: 3px;
   font-size: 20px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`

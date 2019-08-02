@@ -5,7 +5,7 @@ export const StyledButtonsWrapper = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  width: 25%;
+  width: 95px;
   padding: 10px;
   margin: 10px;
   border: 3px solid black;

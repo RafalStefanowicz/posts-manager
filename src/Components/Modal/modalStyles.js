@@ -6,10 +6,14 @@ export const StyledReactModal = styled(Modal)`
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 580px;
-  height: 400px;
+  width: 630px;
+  height: 450px;
   transform: translate(-50%, -50%);
   border: 1px solid #0b5394;
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 380px;
+  }
 `;
 
 export const StyledHeading = styled.h1`

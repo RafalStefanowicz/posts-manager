@@ -16,6 +16,7 @@ export const StyledButton = styled.button`
 export const StyledPostWrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  padding: 10px;
 `;
 
 export const StyledTitle = styled.h2`

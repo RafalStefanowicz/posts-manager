@@ -10,6 +10,9 @@ export const StyledInputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledName = styled.span`
