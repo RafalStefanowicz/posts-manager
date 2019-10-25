@@ -10,4 +10,8 @@ export const StyledInfoHeading = styled.h1`
   font-size: 40px;
   text-align: center;
   color: #0b5394;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
 `;
