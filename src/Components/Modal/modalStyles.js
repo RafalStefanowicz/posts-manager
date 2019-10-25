@@ -11,8 +11,8 @@ export const StyledReactModal = styled(Modal)`
   transform: translate(-50%, -50%);
   border: 1px solid #0b5394;
   @media (max-width: 768px) {
-    width: 300px;
-    height: 380px;
+    width: 350px;
+    height: 480px;
   }
 `;
 
