@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const StyledItem = styled.li`
   display: flex;
-  align-items: center;
   margin: 10px;
   padding: 10px;
   border: 2px solid black;
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -19,6 +21,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  margin-left: 10px;
   font-size: 35px;
   color: #0b5394;
 `;

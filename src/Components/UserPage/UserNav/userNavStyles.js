@@ -8,6 +8,6 @@ export const StyledName = styled.h1`
   text-align: center;
   font-size: 32px;
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 22px;
   }
 `;

@@ -15,11 +15,12 @@ export const StyledButton = styled.button`
 
 export const StyledPostWrapper = styled.div`
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 10px auto;
+  padding: 0 10px;
 `;
 
 export const StyledTitle = styled.h2`
   text-align: center;
   margin: 10px;
+  font-size: 18px;
 `;
